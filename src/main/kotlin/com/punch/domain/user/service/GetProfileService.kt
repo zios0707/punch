@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 
 @Service
 
-class ViewProfileService (
+class GetProfileService (
     private val userRepository: UserRepository
 ) {
     fun execute(nickname: String) : User {

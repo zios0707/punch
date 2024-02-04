@@ -6,10 +6,7 @@ import jakarta.persistence.Entity
 
 @Entity
 class User (
-    id : Long,
-
-    @Column(columnDefinition = "BIGINT(20)", nullable = false)
-    val userId: String,
+    id : Long, // user_id
 
     @Column(columnDefinition = "VARCHAR(255)", nullable = false)
     val nickname: String,
