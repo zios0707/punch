@@ -12,6 +12,8 @@ class User (
     val nickname: String,
 
     @Column(columnDefinition = "VARCHAR(255)", nullable = false)
-    val password: String,
+    var password: String
+
+    //TODO : 이미지 URL 추가
 
 ) : BaseEntity(id)
