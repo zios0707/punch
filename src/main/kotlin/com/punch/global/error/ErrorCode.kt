@@ -8,7 +8,9 @@ enum class ErrorCode (
 ) : ErrorProperty {
 
 
-    USER_NOT_FOUND(404, "유저가 찾아봐도 없는데요?");
+    PASS_NOT_MATCH(401, "비밀번호가 일치하지 않습니다."),
+
+    USER_NOT_FOUND(404, "유저를 찾을 수 없습니다.");
 
 
     override fun status() : Int = status
