@@ -1,7 +1,19 @@
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
         show_sql: true
+
+jwt:
+  header : Authorization
+  prefix : Bearer
+  secret : secretCode
+  access : 10000
+  refresh : 604800
