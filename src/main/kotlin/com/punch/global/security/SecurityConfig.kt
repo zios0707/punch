@@ -22,12 +22,16 @@ class SecurityConfig (
 
     @Bean
     fun filterChain(http: HttpSecurity) : SecurityFilterChain {
+
         http.cors().and()
             .csrf().disable()
             .formLogin().disable()
 
         http.sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
+        http.authorizeHttpRequests()
+            .anyRequest().permitAll()
 
         http.apply(FilterConfig(jwtProvider, objectMapper))
 

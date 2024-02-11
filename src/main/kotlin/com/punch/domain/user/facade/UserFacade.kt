@@ -3,6 +3,7 @@ package com.punch.domain.user.facade
 import com.punch.domain.user.domain.User
 import com.punch.domain.user.domain.repository.UserRepository
 import com.punch.domain.user.exception.UserNotFoundException
+import jakarta.transaction.Transactional
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
 
@@ -14,6 +15,7 @@ class UserFacade (
         return userRepository.findByNickname(nickname) ?: throw UserNotFoundException.EXCEPTION
     }
 
+    @Transactional
     fun makeNewUser(nickname: String) : User {
         val newUser = User(0, nickname, "1234")
         userRepository.save(newUser)
