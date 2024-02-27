@@ -2,7 +2,6 @@ package com.punch.global.error.dto
 
 import com.punch.global.error.GlobalErrorCode
 import com.punch.global.error.exception.ErrorProperty
-import jakarta.validation.ConstraintViolationException
 import org.springframework.validation.BindingResult
 
 data class ErrorResponse(

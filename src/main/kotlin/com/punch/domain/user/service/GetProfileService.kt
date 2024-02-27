@@ -1,7 +1,6 @@
 package com.punch.domain.user.service
 
 import com.punch.domain.user.domain.User
-import com.punch.domain.user.domain.repository.UserRepository
 import com.punch.domain.user.facade.UserFacade
 import org.springframework.stereotype.Service
 

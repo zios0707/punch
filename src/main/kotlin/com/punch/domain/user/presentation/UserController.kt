@@ -7,12 +7,7 @@ import com.punch.domain.user.presentation.response.LoginResponse
 import com.punch.domain.user.service.GetProfileService
 import com.punch.domain.user.service.LoginService
 import com.punch.domain.user.service.ModifyProfileService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PatchMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RequestMapping("/user")
 @RestController
@@ -23,7 +18,7 @@ class UserController (
 ) {
 
     @PostMapping("/login")
-    fun login(request: LoginRequest) : LoginResponse {
+    fun login(@RequestBody request: LoginRequest) : LoginResponse {
         return loginService.execute(request)
     }
 
