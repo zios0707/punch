@@ -14,12 +14,18 @@ class ModifyProfileService (
 ) {
     @Transactional
     fun execute(nickname: String, request: ModifyProfileRequest) {
-        var user: User = userFacade.findByNickname(nickname)
+        val user: User = userFacade.findByNickname(nickname)
 
-        //TODO : 이미지 URL 추가
+        val password = request.password.takeUnless { it.isBlank() } ?: user.password
+        val image_url = request.password.takeUnless { it.isBlank() } ?: user.image_url
 
-        if (request.password != null) user.password = request.password
+        val changedUser = User(
+            id = user.id,
+            nickname = user.nickname,
+            password = password,
+            image_url = image_url,
+        )
 
-        userRepository.save(user)
+        userRepository.save(changedUser)
     }
 }

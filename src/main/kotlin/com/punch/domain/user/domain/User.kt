@@ -1,5 +1,6 @@
 package com.punch.domain.user.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.punch.global.entity.BaseEntity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -11,9 +12,12 @@ class User (
     @Column(columnDefinition = "VARCHAR(255)", nullable = false)
     val nickname: String,
 
+    @JsonIgnore
     @Column(columnDefinition = "VARCHAR(255)", nullable = false)
-    var password: String
+    val password: String,
 
-    //TODO : 이미지 URL 추가
+    @Column(columnDefinition = "VARCHAR(255)", nullable = false)
+    var image_url: String
+
 
 ) : BaseEntity(id)
